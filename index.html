@@ -140,6 +140,18 @@
     footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW30H61Y7N"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Only activate analytics if consent has been given
+  if (localStorage.getItem('cookie_consent') === 'accepted') {
+    gtag('config', 'G-HW30H61Y7N');
+  }
+</script>
 </head>
 <body>
 
@@ -457,8 +469,58 @@
       <a href="https://jacqaher.github.io/Prompts/" style="color: #a0b5bf; font-size: 0.85rem; text-decoration: none;" target="_blank">https://jacqaher.github.io/Prompts/</a>
     </div>
   </div>
-  <div style="max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: #6a8090;">© 2026 Workplace AI Coaching · workplaceaicoaching@gmail.com</div>
+  <div style="max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.8rem; color: #6a8090; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+    <span>© 2026 Workplace AI Coaching · workplaceaicoaching@gmail.com</span>
+    <a onclick="document.getElementById('privacy-modal').style.display='flex'" style="color: #a0b5bf; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; font-size: 0.8rem;">Privacy Policy</a>
+  </div>
 </footer>
+
+<!-- COOKIE CONSENT BANNER -->
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 999; background: #2c3e47; color: white; padding: 1.2rem 2rem; box-shadow: 0 -4px 20px rgba(0,0,0,0.2);">
+  <div style="max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;">
+    <p style="font-size: 0.88rem; color: #c9d5db; line-height: 1.6; margin: 0; flex: 1; min-width: 260px;">
+      This website uses cookies to understand how visitors interact with the site, so I can keep improving it. No personal data is sold or shared.
+      <a href="#privacy" onclick="document.getElementById('privacy-modal').style.display='flex'" style="color: #9fb5c4; text-decoration: underline; text-underline-offset: 3px; cursor: pointer;"> Read the privacy policy.</a>
+    </p>
+    <div style="display: flex; gap: 0.8rem; flex-shrink: 0;">
+      <button onclick="declineCookies()" style="background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; padding: 0.5rem 1.2rem; border-radius: 2px; cursor: pointer; font-size: 0.85rem; font-family: 'DM Sans', sans-serif;">Decline</button>
+      <button onclick="acceptCookies()" style="background: #9fb5c4; border: none; color: white; padding: 0.5rem 1.2rem; border-radius: 2px; cursor: pointer; font-size: 0.85rem; font-weight: 600; font-family: 'DM Sans', sans-serif;">Accept</button>
+    </div>
+  </div>
+</div>
+
+<!-- PRIVACY POLICY MODAL -->
+<div id="privacy-modal" style="display: none; position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; padding: 2rem;">
+  <div style="background: white; border-radius: 4px; padding: 2.5rem; max-width: 600px; width: 100%; max-height: 80vh; overflow-y: auto; position: relative;">
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.3rem; cursor: pointer; color: #7a95a3;">✕</button>
+    <h2 style="font-family: 'Fraunces', serif; font-size: 1.5rem; font-weight: 700; margin-bottom: 1.2rem; color: #2c3e47;">Privacy Policy</h2>
+    <p style="font-size: 0.9rem; color: #3a5260; line-height: 1.8; margin-bottom: 1rem;"><strong>Who I am:</strong> This website is operated by Jackie, trading as Workplace AI Coaching, based in Australia. You can contact me at workplaceaicoaching@gmail.com.</p>
+    <p style="font-size: 0.9rem; color: #3a5260; line-height: 1.8; margin-bottom: 1rem;"><strong>What data I collect:</strong> If you give consent, this site uses Google Analytics to collect anonymised information about how visitors use the site — such as which pages are viewed and how long visitors stay. This helps me understand what's useful and improve the site. No personally identifiable information is collected through analytics.</p>
+    <p style="font-size: 0.9rem; color: #3a5260; line-height: 1.8; margin-bottom: 1rem;"><strong>Cookies:</strong> Google Analytics uses cookies — small text files stored on your device. These cookies do not identify you personally. You can decline cookies at any time using the banner on this site, or clear cookies through your browser settings.</p>
+    <p style="font-size: 0.9rem; color: #3a5260; line-height: 1.8; margin-bottom: 1rem;"><strong>Third parties:</strong> Analytics data is processed by Google. I do not sell, share, or pass your data to any other third parties.</p>
+    <p style="font-size: 0.9rem; color: #3a5260; line-height: 1.8; margin-bottom: 1rem;"><strong>Contact:</strong> If you have any questions about privacy on this site, email workplaceaicoaching@gmail.com.</p>
+    <p style="font-size: 0.82rem; color: #7a95a3; margin-top: 1.5rem;">This policy was last updated August 2026.</p>
+    <button onclick="document.getElementById('privacy-modal').style.display='none'" style="margin-top: 1rem; background: #9fb5c4; border: none; color: white; padding: 0.6rem 1.5rem; border-radius: 2px; cursor: pointer; font-size: 0.88rem; font-weight: 600; font-family: 'DM Sans', sans-serif;">Close</button>
+  </div>
+</div>
+
+<script>
+  // Show banner if no consent decision yet
+  if (!localStorage.getItem('cookie_consent')) {
+    document.getElementById('cookie-banner').style.display = 'block';
+  }
+
+  function acceptCookies() {
+    localStorage.setItem('cookie_consent', 'accepted');
+    document.getElementById('cookie-banner').style.display = 'none';
+    gtag('config', 'G-HW30H61Y7N');
+  }
+
+  function declineCookies() {
+    localStorage.setItem('cookie_consent', 'declined');
+    document.getElementById('cookie-banner').style.display = 'none';
+  }
+</script>
 
 </body>
 </html>
